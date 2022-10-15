@@ -18,9 +18,9 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
-    path('crear-destino/', views.crear_destino),
     path('',views.index, name='index'),
     path('about/',views.about, name='about'),
     path('listar/', views.listar, name='listar'),
+    path('agregar-destino/', views.agregar_destino, name='agregar-destino'),
     path('admin/', admin.site.urls),
 ]

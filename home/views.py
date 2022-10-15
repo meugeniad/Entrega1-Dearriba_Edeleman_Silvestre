@@ -5,7 +5,7 @@ from datetime import date
 
 # Create your views here.
 
-def crear_destino(request):
+def agregar_destino(request):
     
     destino = Destino(pais ='España', ciudad = 'Madrid', 
                       informacion = 'Es la capital del país. Tiene hermosas avenidas y parques. Museos: Nacional del Prado y Reina Sofía',
@@ -14,7 +14,7 @@ def crear_destino(request):
                       autor = 'Eugenia')
     destino.save()
     
-    return render(request, 'crear_destino.html', {})
+    return render(request, 'home/agregar_destino.html', {'destino': destino})
 
 def listar(request):
     

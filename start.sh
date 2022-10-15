@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# . venv_proyecto/bin/activate
 
 if [ $VIRTUAL_ENVIRONMENT ]
 then 

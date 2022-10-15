@@ -1,0 +1,45 @@
+{% extends 'padres/base.html' %}
+
+{% block mi_contenido %}
+       
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">¡Viajemos juntos!</h1>
+                           
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </header>
+<br>
+<br>
+<p><H2>LISTADO DE ARTICULOS </H2><p>
+<br>
+<br>
+
+ <p>
+    {% if destinos %}
+
+        {% for destino in destinos %}
+            
+            <li><strong>País:</strong> {{destino.pais}} 
+            <li><strong>Ciudad:</strong> {{destino.ciudad}} 
+            <li>{{destino.informacion}}
+            <li> <strong>Sugerido para:</strong> {{destino.sugerido_para}} 
+            <li> <strong>Autor:</strong>{{destino.autor}} --  <strong>Fecha de creación: </strong>{{destino.fecha_creacion}} 
+             <HR>   
+            
+        {% endfor %}
+
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock mi_contenido %}

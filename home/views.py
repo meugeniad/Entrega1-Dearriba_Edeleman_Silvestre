@@ -4,6 +4,7 @@ from datetime import date
 
 
 # Create your views here.
+
 def crear_destino(request):
     
     destino = Destino(pais ='España', ciudad = 'Madrid', 
@@ -15,7 +16,14 @@ def crear_destino(request):
     
     return render(request, 'crear_destino.html', {})
 
-def ver_destinos(request):
+def listar(request):
+    
     destinos = Destino.objects.all()
     
-    return render(request,'ver_destinos.html',{'destinos': destinos})
+    return render(request, 'home/listar.html',{'destinos': destinos})
+
+def index(request):
+    return render(request, 'home/index.html')
+
+def about(request):
+    return render(request, 'home/about.html')

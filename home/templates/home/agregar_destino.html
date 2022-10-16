@@ -7,12 +7,12 @@
 {% block mi_contenido %}
 <form action={% url 'agregar_destino' %} method="POST">
     {% csrf_token %}
+    <h3>Incorporemos un nuevo Destino</h3>
     <table>
         {{formulario}}
     </table>
     
     <button>Agregar</button>
-
 </form>
 
 {% endblock mi_contenido %}

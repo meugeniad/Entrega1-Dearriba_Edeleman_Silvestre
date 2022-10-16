@@ -6,15 +6,19 @@ from datetime import date
 # Create your views here.
 
 def agregar_destino(request):
+   
+    print(request.POST)
+    # pais = request.POST.get('pais')
+    # ciudad = request.POST.get('ciudad')
+    # informacion =  request.POST.get('informacion')
+    # sugerido_para =  request.POST.get('sugerido')
+    # autor =  request.POST.get('autor')
+    # destino = Destino(pais=pais, ciudad=ciudad, informacion=informacion,
+    #                   sugerido_para=sugerido_para, fecha_creacion=date.today(),
+    #                   autor=autor)
+    # destino.save()
     
-    destino = Destino(pais ='España', ciudad = 'Madrid', 
-                      informacion = 'Es la capital del país. Tiene hermosas avenidas y parques. Museos: Nacional del Prado y Reina Sofía',
-                      sugerido_para = 'La familia, turistas gastronómicos',
-                      fecha_creacion = date.today(),
-                      autor = 'Eugenia')
-    destino.save()
-    
-    return render(request, 'home/agregar_destino.html', {'destino': destino})
+    return render(request, 'home/agregar_destino.html', {})
 
 def listar(request):
     

@@ -19,8 +19,8 @@ from home import views
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('about/',views.about, name='about'),
     path('listar/', views.listar, name='listar'),
-    path('agregar-destino/', views.agregar_destino, name='agregar-destino'),
+    path('agregar-destino/', views.agregar_destino, name='agregar_destino'),
+    path('about/',views.about, name='about'),
     path('admin/', admin.site.urls),
 ]

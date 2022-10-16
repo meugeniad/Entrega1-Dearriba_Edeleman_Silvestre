@@ -8,3 +8,5 @@ class Destino(models.Model):
     sugerido_para = models.CharField(max_length = 200)
     fecha_creacion = models.DateField()
     autor = models.CharField(max_length = 50)
+    
+    

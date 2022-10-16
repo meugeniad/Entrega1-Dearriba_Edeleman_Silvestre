@@ -9,4 +9,4 @@ class DestinoFormulario(forms.Form):
     autor = forms.CharField(max_length = 50)
     
 class BuscarPaisFormulario(forms.Form):
-    pais = forms.CharField(max_length=50)
+    pais = forms.CharField(max_length=50,required=False)

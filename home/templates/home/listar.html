@@ -20,18 +20,24 @@
     {% if destinos %}
 
         {% for destino in destinos %}
-            
-            <li><strong>País:</strong> {{destino.pais}} 
-            <li><strong>Ciudad:</strong> {{destino.ciudad}} 
-            <li>{{destino.informacion}}
-            <li> <strong>Sugerido para:</strong> {{destino.sugerido_para}} 
-            <li> <strong>Autor:</strong>{{destino.autor}} --  <strong>Fecha de creación: </strong>{{destino.fecha_creacion}} 
-             <HR>   
+            <P>
+            <strong>País:</strong> {{destino.pais}} 
+            <strong>Ciudad:</strong> {{destino.ciudad}} 
+            <FONT COLOR="blue">----->></FONT COLOR="blue">{{destino.informacion}}
+            <br>
+                <strong>Sugerido para:</strong> {{destino.sugerido_para}} 
+                <strong>  Por: </strong>{{destino.autor}} <strong>el día </strong>  {{destino.fecha_creacion}} 
+            </p>
+                    <HR>   
             
         {% endfor %}
 
     {% else %}
-        <p>No se encontraron resultados.</p>
+        <p>
+            <FONT COLOR="red">
+                No se encontraron resultados.
+            </FONT COLOR="red">
+        </p>
     {% endif %}
 
 </p>

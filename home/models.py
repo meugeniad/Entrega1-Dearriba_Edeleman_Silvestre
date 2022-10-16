@@ -4,9 +4,10 @@ from django.db import models
 class Destino(models.Model):
     pais = models.CharField(max_length = 50)
     ciudad = models.CharField(max_length = 50)
-    informacion =  models.TextField()
+    informacion =  models.CharField(max_length = 500)
     sugerido_para = models.CharField(max_length = 200)
     fecha_creacion = models.DateField()
     autor = models.CharField(max_length = 50)
+    
     
     

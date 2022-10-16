@@ -1,24 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import is_valid_path
 from home.models import Destino
 from datetime import date
+from home.forms import DestinoFormulario
 
 
 # Create your views here.
 
 def agregar_destino(request):
    
-    print(request.POST)
-    # pais = request.POST.get('pais')
-    # ciudad = request.POST.get('ciudad')
-    # informacion =  request.POST.get('informacion')
-    # sugerido_para =  request.POST.get('sugerido')
-    # autor =  request.POST.get('autor')
-    # destino = Destino(pais=pais, ciudad=ciudad, informacion=informacion,
-    #                   sugerido_para=sugerido_para, fecha_creacion=date.today(),
-    #                   autor=autor)
-    # destino.save()
+    if request.method == "POST":
+        
+        formulario = DestinoFormulario(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+        
+            pais = data['pais']
+            ciudad = data['ciudad']
+            informacion =  data['informacion']
+            sugerido_para =  data['sugerido']
+            autor =  data['autor']
+            destino = Destino(pais=pais, ciudad=ciudad, informacion=informacion,
+                            sugerido_para=sugerido_para, fecha_creacion=date.today(),
+                            autor=autor)
+            destino.save()
+            
+            return redirect('listar')
     
-    return render(request, 'home/agregar_destino.html', {})
+    formulario = DestinoFormulario()
+    
+    return render(request, 'home/agregar_destino.html', {'formulario': formulario})
 
 def listar(request):
     

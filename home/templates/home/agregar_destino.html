@@ -7,27 +7,10 @@
 {% block mi_contenido %}
 <form action={% url 'agregar_destino' %} method="POST">
     {% csrf_token %}
-    <p>
-        País:
-        <input type="text" name="pais" placeholder="País">
-    </p>
-    <p>
-        Ciudad:
-        <input type="text"  name="ciudad" placeholder="Ciudad">
-    </p>
-    <p>
-        <strong>Información del lugar:</strong>  
-        <input type="text" name="informacion" placeholder="Informacion del lugar">
-    </p>
-    <p>
-        <strong>Sugerido para:</strong>  
-        <input type="text" name="sugerido" placeholder="Sugerido para...">
-    </p>
-    <p>
-        <strong>Viajero:</strong>  
-        <input type="text" name="autor" placeholder="Nombre del viajero">
-    </p>
-
+    <table>
+        {{formulario}}
+    </table>
+    
     <button>Agregar</button>
 
 </form>

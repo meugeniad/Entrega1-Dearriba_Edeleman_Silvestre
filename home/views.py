@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import is_valid_path
 from home.models import Destino
 from datetime import date
-from home.forms import DestinoFormulario
+from home.forms import DestinoFormulario , BuscarPaisFormulario
 
 
 # Create your views here.
@@ -36,7 +36,9 @@ def listar(request):
     
     destinos = Destino.objects.all()
     
-    return render(request, 'home/listar.html',{'destinos': destinos})
+    formulario = BuscarPaisFormulario()
+    
+    return render(request, 'home/listar.html',{'destinos': destinos , 'formulario':formulario})
 
 def index(request):
     return render(request, 'home/index.html')

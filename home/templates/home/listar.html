@@ -6,10 +6,15 @@
 
 {% block mi_contenido %}
 <br>
-<br>
 <p><H2>LISTADO DE DESTINOS </H2><p>
 <br>
-<br>
+
+<form action={% url 'listar' %} method="GET">
+    <p>  
+       {{formulario}}
+        <button>Buscar</button>
+    </p>
+</form>
 
  <p>
     {% if destinos %}

@@ -19,7 +19,7 @@ def agregar_destino(request):
             pais = data['pais']
             ciudad = data['ciudad']
             informacion =  data['informacion']
-            sugerido_para =  data['sugerido']
+            sugerido_para =  data['sugerido_para']
             autor =  data['autor']
             destino = Destino(pais=pais, ciudad=ciudad, informacion=informacion,
                             sugerido_para=sugerido_para, fecha_creacion=date.today(),

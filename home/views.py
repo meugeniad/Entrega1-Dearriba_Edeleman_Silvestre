@@ -34,7 +34,12 @@ def agregar_destino(request):
 
 def listar(request):
     
-    destinos = Destino.objects.all()
+    pais = request.GET.get('pais',None)
+    
+    if pais: 
+       destinos = Destino.objects.filter(pais__icontains=pais)
+    else:  
+        destinos = Destino.objects.all()
     
     formulario = BuscarPaisFormulario()
     

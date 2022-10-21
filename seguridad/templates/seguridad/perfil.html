@@ -21,7 +21,7 @@
     <li>Apellido: {{request.user.last_name}}</li>
     <li>Email: {{request.user.email}}</li>
     <li>Sobre mi: {{request.user.extensionusuario.descripcion}}</li>
-    <li>Mi web: {{request.user.extensionusuario.link}}</li>
+    <li>Mi web: <a href={{request.user.extensionusuario.link}}> {{request.user.extensionusuario.link}}</a></li>
 </p>
 <p>
     <a href={% url 'editar_perfil' %}>Editar datos</a>

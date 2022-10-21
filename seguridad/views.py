@@ -56,6 +56,8 @@ def editar_perfil(request):
             user.last_name = data_nueva['last_name']
             user.email = data_nueva['email']
             user.extensionusuario.avatar = data_nueva['avatar']
+            user.extensionusuario.descripcion = data_nueva['descripcion']
+            user.extensionusuario.link = data_nueva['link']
 
             user.extensionusuario.save()
             user.save()
@@ -68,6 +70,8 @@ def editar_perfil(request):
                 'last_name': user.last_name,
                 'email': user.email,
                 'avatar': user.extensionusuario.avatar,
+                'descripcion': user.extensionusuario.descripcion,
+                'link': user.extensionusuario.link,
             }
         )
     return render(request, 'seguridad/editar_perfil.html', {'formulario': formulario})

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 
-class AltaUsuario(UserCreationForm):
+class MiFormularioDeCreacion(UserCreationForm):
 
     email = forms.CharField()
     password1 = forms.CharField(
@@ -15,3 +15,10 @@ class AltaUsuario(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
         help_texts = {key: '' for key in fields}
+        
+
+class EditarPerfilFormulario(forms.Form):
+    email = forms.CharField()
+    first_name = forms.CharField(label='Nombre')
+    last_name = forms.CharField(label='Apellido')
+    avatar = forms.ImageField(required=False)

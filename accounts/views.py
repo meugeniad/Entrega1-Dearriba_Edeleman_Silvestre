@@ -1,11 +1,11 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
-from seguridad.forms import MiFormularioDeCreacion, EditarPerfilFormulario
+from accounts.forms import MiFormularioDeCreacion, EditarPerfilFormulario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
-from seguridad.models import ExtensionUsuario
+from accounts.models import ExtensionUsuario
  
 
 def mi_login(request):
@@ -21,7 +21,7 @@ def mi_login(request):
     else:
         formulario = AuthenticationForm()
 
-    return render(request,'seguridad/login.html', {'formulario': formulario})
+    return render(request, 'accounts/login.html', {'formulario': formulario})
 
 
 def registrar(request):
@@ -34,12 +34,12 @@ def registrar(request):
     else:
         formulario = MiFormularioDeCreacion()
 
-    return render(request, 'seguridad/registrar.html', {'formulario': formulario})
+    return render(request, 'accounts/registrar.html', {'formulario': formulario})
 
 
 @login_required
 def perfil(request):
-    return render(request, 'seguridad/perfil.html', {})
+    return render(request, 'accounts/perfil.html', {})
 
 
 @login_required
@@ -74,9 +74,9 @@ def editar_perfil(request):
                 'link': user.extensionusuario.link,
             }
         )
-    return render(request, 'seguridad/editar_perfil.html', {'formulario': formulario})
+    return render(request, 'accounts/editar_perfil.html', {'formulario': formulario})
 
 
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
-    template_name = 'seguridad/cambiar_contrasenia.html'
-    success_url = '/seguridad/perfil/'
+    template_name = 'accounts/cambiar_contrasenia.html'
+    success_url = '/accounts/perfil/'

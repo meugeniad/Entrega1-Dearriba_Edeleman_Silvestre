@@ -8,9 +8,23 @@
 {% block mi_contenido %}
 <form action={% url 'registrar' %} method="POST">
     {% csrf_token %}
+    <br>
     <table>
         {{formulario}}
     </table>
+    <br>
+    <p>
+    <strong>USUARIO:</strong> 150 caracteres o menos. Se aceptan letras, números y @/./+/-/_ solamente.
+    </p>
+    <p>
+    <strong>CONTRASEÑA: </strong>
+    <li>No puede ser similar a tu usuario.</li>
+    <li>Debe tener al menos 8 caracteres.</li>
+    <li>No debe ser una clave de uso común.</li>
+    <li>No puede ser solo numérica.</li>
+    </p>
+    <br>
+
     <button>Registrarse</button>
 </form>
 {% endblock mi_contenido %}

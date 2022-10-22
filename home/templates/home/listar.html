@@ -19,15 +19,12 @@
     {% if destinos %}
 
         {% for destino in destinos %}
-            <P>
-            <strong>País:</strong> {{destino.pais}} 
-            <strong>Ciudad:</strong> {{destino.ciudad}} 
-            <FONT COLOR="blue">----->></FONT COLOR="blue">{{destino.informacion}}
-            <br>
-                <strong>Sugerido para:</strong> {{destino.sugerido_para}} 
-                <strong>  Por: </strong>{{destino.autor}} <strong>el día </strong>  {{destino.fecha_creacion}} 
-            </p>
-                    <HR>   
+            <li>
+                {{destino}}
+                <a href={% url 'editar_destino' destino.id %}>Editar</a>
+                <a href={% url 'eliminar_destino' destino.id %}>Eliminar</a>
+                <a href={% url 'mostrar_destino' destino.id %}>Ver</a>
+            </li>  
             
         {% endfor %}
 

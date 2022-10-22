@@ -1,13 +1,13 @@
 {% extends 'padres/base.html' %}
 
 {% block title_pagina %}
-<title>Viajemos Juntos - Agregar Destino</title>
+<title>Viajemos Juntos - Editar Destino</title>
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-<form action={% url 'agregar_destino' %} method="POST" enctype = 'multipart/form-data'>
+<form action={% url 'editar_destino' destino.id %} method="POST" enctype = 'multipart/form-data'>
     {% csrf_token %}
-    <h3>Incorporemos un nuevo Destino</h3>
+    <h3>Actulizar información del Destino</h3>
     {% comment %} <table>
         {{formulario}}
     </table> {% endcomment %}
@@ -18,7 +18,7 @@
         </div>
     </table>
     
-    <button>Agregar</button>
+    <button>Actualizar</button>
 </form>
 
 {% endblock mi_contenido %}

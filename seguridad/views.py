@@ -21,7 +21,7 @@ def mi_login(request):
     else:
         formulario = AuthenticationForm()
 
-    return render(request, 'seguridad/login.html', {'formulario': formulario})
+    return render(request,'seguridad/login.html', {'formulario': formulario})
 
 
 def registrar(request):

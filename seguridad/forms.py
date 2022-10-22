@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 
+
 class MiFormularioDeCreacion(UserCreationForm):
 
     email = forms.CharField()
@@ -21,7 +22,7 @@ class EditarPerfilFormulario(forms.Form):
     email = forms.CharField()
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
-    descripcion = forms.CharField(label='Sobre mi', required=False)
+    descripcion = forms.CharField(label='Sobre mi',widget=forms.Textarea, required=False)
     link = forms.URLField(label='Mi web', required=False)
     avatar = forms.ImageField(required=False)
     

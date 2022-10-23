@@ -1,0 +1,28 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+<title>Viajemos Juntos - Destino elegido</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<h3>Información del Destino</h3>
+<form action={% url 'mostrar_destino' object.id %} method="GET" enctype = 'multipart/form-data' >
+    <p>
+        <p><strong>País:</strong> {{object.pais}}</p>
+        <p><strong>Ciudad:</strong> {{object.ciudad}}</p>
+        <p><strong>Información:</strong> {{object.informacion}}</p>
+        <p><strong>Sugerido:</strong>{{object.sugerido_para}}</p>
+        <p><strong>Autor:</strong> {{object.autor}}</p>
+        <p><strong>Fecha creación:</strong> {{object.fecha_creacion}}</p>
+        <p><strong>Fecha ult. modificación:</strong> {{object.fecha_modificacion}}</p>
+        <p><strong>Foto:</strong>{{object.foto_destino}}</p>
+   
+    </p>
+   
+    <p>
+        <a href={%url 'listar' %}>Volver</a>
+    </p>
+    
+</form> 
+
+{% endblock mi_contenido %}

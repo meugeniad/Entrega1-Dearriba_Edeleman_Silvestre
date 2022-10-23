@@ -6,6 +6,7 @@ from home.forms import DestinoFormulario , BuscarPaisFormulario, EditarDestinoFo
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -107,19 +108,25 @@ def eliminar_destino(request, id):
    return redirect('listar')
 
 
-def mostrar_destino(request, id):
+# def mostrar_destino(request, id):
     
-    destino = Destino.objects.get(id=id)
+#     destino = Destino.objects.get(id=id)
            
-    formulario = DestinoFormulario(
-        initial={
-                'pais': destino.pais,
-                'ciudad': destino.ciudad,
-                'informacion' : destino.informacion,
-                'sugerido_para' : destino.sugerido_para,
-                'autor' : destino.autor,
-                'foto_destino' :  destino.foto_destino
-            }
-    )
+#     formulario = DestinoFormulario(
+#         initial={
+#                 'pais': destino.pais,
+#                 'ciudad': destino.ciudad,
+#                 'informacion' : destino.informacion,
+#                 'sugerido_para' : destino.sugerido_para,
+#                 'autor' : destino.autor,
+#                 'foto_destino' :  destino.foto_destino
+#             }
+#     )
         
-    return render(request, 'home/mostrar_destino.html', {'formulario': formulario ,'destino' : destino})
+#     return render(request, 'home/mostrar_destino.html', {'formulario': formulario ,'destino' : destino})
+
+class MostrarDestino(DetailView):
+    model = Destino
+    template_name ='home/mostrar_destino_cbv.html'
+    
+   

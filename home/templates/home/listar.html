@@ -21,8 +21,9 @@
         {% for destino in destinos %}
             <li>
                 {{destino}}
-                <a href={% url 'editar_destino' destino.id %}>Editar</a>
-                <a href={% url 'eliminar_destino' destino.id %}>Eliminar</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href={% url 'editar_destino' destino.id %}>Editar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href={% url 'eliminar_destino' destino.id %}>Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href={% url 'mostrar_destino' destino.id %}>Ver</a>
             </li>  
             

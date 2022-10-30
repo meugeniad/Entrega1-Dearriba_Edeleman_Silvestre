@@ -8,17 +8,18 @@
 <form action={% url 'agregar_destino' %} method="POST" enctype = 'multipart/form-data'>
     {% csrf_token %}
     <h3>Incorporemos un nuevo Destino</h3>
-    {% comment %} <table>
-        {{formulario}}
-    </table> {% endcomment %}
     <table>
         <div class="form-group"> 
             {{form.media}}
-            {{formulario}}
+            {{form}}
         </div>
     </table>
     
     <button>Agregar</button>
 </form>
+
+<p>
+    <a href={%url 'listar' %}>Volver</a>
+</p>
 
 {% endblock mi_contenido %}

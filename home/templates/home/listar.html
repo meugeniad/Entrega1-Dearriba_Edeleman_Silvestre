@@ -8,6 +8,8 @@
 <br>
 <p><H3>LISTADO DE DESTINOS </H3><p>
 
+<a class="navbar-brand" href={% url 'agregar_destino' %}>Agregar destino</a> 
+
 <form action={% url 'listar' %} method="GET">
     <p>  
        {{formulario}}

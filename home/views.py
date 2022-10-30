@@ -2,42 +2,14 @@ from django.shortcuts import render, redirect
 from django.urls import is_valid_path
 from home.models import Destino
 from datetime import date
-from home.forms import DestinoFormulario , BuscarPaisFormulario, EditarDestinoFormulario
+from home.forms import  BuscarPaisFormulario, EditarDestinoFormulario
+# DestinoFormulario,
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
-
-
-# Create your views here.
-@login_required
-def agregar_destino(request):
-   
-    if request.method == "POST":
-        
-        formulario = DestinoFormulario(request.POST, request.FILES)
-        
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-        
-            pais = data['pais']
-            ciudad = data['ciudad']
-            informacion =  data['informacion']
-            sugerido_para =  data['sugerido_para']
-            autor =  data['autor']
-            foto_destino = data['foto_destino']
-            destino = Destino(pais=pais, ciudad=ciudad, informacion=informacion,
-                            sugerido_para=sugerido_para, fecha_creacion=date.today(),
-                            autor=autor,foto_destino=foto_destino)
-            destino.save()
-            
-            return redirect('listar')
-        else:
-            return render(request, 'home/agregar_destino.html', {'formulario': formulario})
-    
-    formulario = DestinoFormulario()
-    
-    return render(request, 'home/agregar_destino.html', {'formulario': formulario})
 
 
 def listar(request):
@@ -108,22 +80,11 @@ def eliminar_destino(request, id):
    return redirect('listar')
 
 
-# def mostrar_destino(request, id):
-    
-#     destino = Destino.objects.get(id=id)
-           
-#     formulario = DestinoFormulario(
-#         initial={
-#                 'pais': destino.pais,
-#                 'ciudad': destino.ciudad,
-#                 'informacion' : destino.informacion,
-#                 'sugerido_para' : destino.sugerido_para,
-#                 'autor' : destino.autor,
-#                 'foto_destino' :  destino.foto_destino
-#             }
-#     )
-        
-#     return render(request, 'home/mostrar_destino.html', {'formulario': formulario ,'destino' : destino})
+class AgregarDestino(LoginRequiredMixin,  CreateView):
+    model = Destino
+    success_url = '/destino/listar/'
+    fields = ['pais', 'ciudad', 'sugerido_para', 'autor' ,'foto_destino','informacion']  
+    template_name = 'home/agregar_destino_cbv.html'
 
 class MostrarDestino(DetailView):
     model = Destino

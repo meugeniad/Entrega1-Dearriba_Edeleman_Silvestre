@@ -6,25 +6,22 @@
 
 {% block mi_contenido %}
 <h3>Información del Destino</h3>
-<form action={% url 'mostrar_destino' object.id %} method="GET" enctype = 'multipart/form-data' >
+
     <p>
-        <p><strong>País:</strong> {{object.pais}}</p>
-        <p><strong>Ciudad:</strong> {{object.ciudad}}</p>
-        <p><strong>Información:</strong> {{object.informacion}}</p>
-        <p><strong>Sugerido:</strong>{{object.sugerido_para}}</p>
-        <p><strong>Autor:</strong> {{object.autor}}</p>
-        <p><strong>Fecha creación:</strong> {{object.fecha_creacion}}</p>
-        <p><strong>Fecha ult. modificación:</strong> {{object.fecha_modificacion}}</p>
+        <p><strong>País:</strong> {{destino.pais}}</p>
+        <p><strong>Ciudad:</strong> {{destino.ciudad}}</p>
+        <p><strong>Información:</strong> {{destino.informacion | safe}}</p>
+        <p><strong>Sugerido:</strong>{{destino.sugerido_para}}</p>
+        <p><strong>Autor:</strong> {{destino.autor}}</p>
+        <p><strong>Fecha creación:</strong> {{destino.fecha_creacion}}</p>
+        <p><strong>Fecha ult. modificación:</strong> {{destino.fecha_modificacion}}</p>
             
-        <img src={{object.foto_destino.url}} >
-       
+        <img src={{destino.foto_destino.url}} > 
    
     </p>
    
     <p>
         <a href={%url 'listar' %}>Volver</a>
     </p>
-    
-</form> 
 
 {% endblock mi_contenido %}

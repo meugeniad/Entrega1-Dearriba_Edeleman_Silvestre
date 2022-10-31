@@ -7,7 +7,7 @@ class BuscarPaisFormulario(forms.Form):
 class EditarDestinoFormulario(forms.Form):
     pais = forms.CharField(max_length = 50)
     ciudad = forms.CharField(max_length = 50)
-    informacion = RichTextFormField()
     sugerido_para = forms.CharField(max_length = 100)
+    informacion = RichTextFormField()
     autor = forms.CharField(max_length = 50)
     foto_destino = forms.ImageField(label='Foto Destino',required=False)

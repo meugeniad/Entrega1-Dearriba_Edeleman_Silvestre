@@ -8,15 +8,19 @@
 <form action={% url 'editar_destino' destino.id %} method="POST" enctype = 'multipart/form-data'>
     {% csrf_token %}
     <h3>Actulizar información del Destino</h3>
-    {% comment %} <table>
-        {{formulario}}
-    </table> {% endcomment %}
     <table>
         <div class="form-group"> 
-            {{form.media}}
+            {{formulario.media}}
             {{formulario}}
         </div>
+        
     </table>
+
+    <div>
+        {% if destino.foto_destino %}
+        <img src={{destino.foto_destino.url}} width = '500' > 
+        {% endif %}
+    </div>
     
     <button>Actualizar</button>
 </form>

@@ -3,7 +3,6 @@ from django.urls import is_valid_path
 from home.models import Destino
 from datetime import date
 from home.forms import  BuscarPaisFormulario, EditarDestinoFormulario
-# DestinoFormulario,
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin

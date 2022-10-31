@@ -15,8 +15,10 @@
         <p><strong>Autor:</strong> {{destino.autor}}</p>
         <p><strong>Fecha creación:</strong> {{destino.fecha_creacion}}</p>
         <p><strong>Fecha ult. modificación:</strong> {{destino.fecha_modificacion}}</p>
-            
-        <img src={{destino.foto_destino.url}} > 
+        
+        {% if destino.foto_destino %}
+        <img src={{destino.foto_destino.url}} width = '500' > 
+        {% endif %}
    
     </p>
    

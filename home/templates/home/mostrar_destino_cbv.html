@@ -14,7 +14,9 @@
         <p><strong>Sugerido:</strong>{{destino.sugerido_para}}</p>
         <p><strong>Autor:</strong> {{destino.autor}}</p>
         <p><strong>Fecha creación:</strong> {{destino.fecha_creacion}}</p>
+        {% if destino.fecha_modificacion %}
         <p><strong>Fecha ult. modificación:</strong> {{destino.fecha_modificacion}}</p>
+        {% endif %}
         
         {% if destino.foto_destino %}
         <img src={{destino.foto_destino.url}} width = '500' > 

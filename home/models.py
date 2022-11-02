@@ -13,7 +13,10 @@ class Destino(models.Model):
     fecha_modificacion =models.DateField(null=True)
     
     def __str__(self):
-        return f'País: {self.pais} - Ciudad: {self.ciudad} - Autor: {self.autor} - Fecha creación: {self.fecha_creacion}'
+        if self.fecha_modificacion:
+            return f'País: {self.pais} - Ciudad: {self.ciudad} - Autor: {self.autor} - Fecha creación: {self.fecha_creacion} - Fecha modificación: {self.fecha_modificacion}'
+        
+        return f'País: {self.pais} - Ciudad: {self.ciudad} - Autor: {self.autor} - Fecha creación: {self.fecha_creacion} '
     
     
     

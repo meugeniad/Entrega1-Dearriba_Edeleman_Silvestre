@@ -7,7 +7,7 @@
 {% block mi_contenido %}
 <form action={% url 'editar_destino' destino.id %} method="POST" enctype = 'multipart/form-data'>
     {% csrf_token %}
-    <h3>Actulizar información del Destino</h3>
+    <h3>Actualizar información del Destino</h3>
     <table>
         <div class="form-group"> 
             {{formulario.media}}

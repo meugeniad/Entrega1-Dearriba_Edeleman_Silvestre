@@ -10,12 +10,12 @@
     <p>
         <p><strong>País:</strong> {{destino.pais}}</p>
         <p><strong>Ciudad:</strong> {{destino.ciudad}}</p>
-        <p><strong>Información:</strong> {{destino.informacion | safe}}</p>
-        <p><strong>Sugerido:</strong>{{destino.sugerido_para}}</p>
+        <p>{{destino.informacion | safe}}</p>
+        <p><strong>Sugerido para:</strong>{{destino.sugerido_para}}</p>
         <p><strong>Autor:</strong> {{destino.autor}}</p>
         <p><strong>Fecha creación:</strong> {{destino.fecha_creacion}}</p>
         {% if destino.fecha_modificacion %}
-        <p><strong>Fecha ult. modificación:</strong> {{destino.fecha_modificacion}}</p>
+        <p><strong>Fecha de modificación:</strong> {{destino.fecha_modificacion}}</p>
         {% endif %}
         
         {% if destino.foto_destino %}

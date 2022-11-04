@@ -3,6 +3,8 @@ Descripción:
 
 Nuestro proyecto es un blog de turismo que permitan orientar de manera sencilla a distintos tipos de turistas para poder cumplir con sus sueños.
 
+Link al video: https://youtu.be/7YDE5dIO3hU
+
 Autores:
 - María Eugenia Dearriba (CRUD de destinos)
 - Pablo Silvestre (módulo de seguridad)
